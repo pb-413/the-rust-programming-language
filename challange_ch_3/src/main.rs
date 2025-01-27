@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 
+// Convert temperatures between Fahrenheit and Celsius.
 fn convert_to_celsius(fahrenheit: f32) -> f32 {
     (fahrenheit - 32.0) * 5.0 / 9.0
 }
@@ -20,6 +21,15 @@ fn test_convert_to_celsius() {
     // Oh, not only is it un-ordered,
     // it is randomly ordered when running again.
 }
+
+
+// TODO: Generate the nth Fibonacci number.
+
+
+// TODO: Print the lyrics to the Christmas carol
+// “The Twelve Days of Christmas,”
+// taking advantage of the repetition in the song.
+
 
 fn main() {
     test_convert_to_celsius();
