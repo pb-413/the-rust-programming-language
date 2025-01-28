@@ -23,8 +23,29 @@ fn test_convert_to_celsius() {
 }
 
 
-// TODO: Generate the nth Fibonacci number.
+// Generate the nth Fibonacci number.
+fn fibonacci(n: i32) -> i32 {
+    let n1 = 0;
+    let n2 = 1;
+    if n == 1 {
+        n1
+    }
+    else if n == 2 {
+        n2
+    }
+    else {
+        fibonacci(n - 1) + fibonacci(n - 2)
+    }
+}
 
+fn test_fibonacci() {
+    // 0, 1, 1, 2, 3, 5, 8, 13
+    // 1, 2, 3, 4, 5, 6, 7, 8
+    for n in 1..9 {
+        let f = fibonacci(n);
+        println!("fib({n}) = {f}")
+    }
+}
 
 // TODO: Print the lyrics to the Christmas carol
 // “The Twelve Days of Christmas,”
@@ -32,5 +53,6 @@ fn test_convert_to_celsius() {
 
 
 fn main() {
-    test_convert_to_celsius();
+    // test_convert_to_celsius();
+    test_fibonacci();
 }
