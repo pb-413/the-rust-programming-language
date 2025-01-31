@@ -23,14 +23,66 @@ fn test_convert_to_celsius() {
 }
 
 
-// TODO: Generate the nth Fibonacci number.
+// Generate the nth Fibonacci number.
+fn fibonacci(n: i32) -> i32 {
+    let n1 = 0;
+    let n2 = 1;
+    if n == 1 {
+        n1
+    }
+    else if n == 2 {
+        n2
+    }
+    else {
+        fibonacci(n - 1) + fibonacci(n - 2)
+    }
+}
 
+fn test_fibonacci() {
+    // 0, 1, 1, 2, 3, 5, 8, 13
+    // 1, 2, 3, 4, 5, 6, 7, 8
+    for n in 1..9 {
+        let f = fibonacci(n);
+        println!("fib({n}) = {f}")
+    }
+}
 
-// TODO: Print the lyrics to the Christmas carol
+// Print the lyrics to the Christmas carol
 // “The Twelve Days of Christmas,”
 // taking advantage of the repetition in the song.
+fn test_twelve_days_of_christmas() {
+    let d1 = "a partridge in a pair tree";
+    let d2 = "two";
+    let d3 = "three";
+    let d4 = "four";
+    let d5 = "five golden rings";
+    let d6 = "six";
+    let d7 = "seven";
+    let d8 = "eight";
+    let d9 = "nine";
+    let d10 = "ten";
+    let d11 = "eleven pipers piping";
+    let d12 = "twelve drummers drumming";
+    let days = [
+        d1, d2, d3,  d4, d5,  d6,
+        d7, d8, d9, d10, d11, d12
+    ];
 
+    for i in 0..12 {
+        let day = i + 1;
+        println!("on the {day} day of christmas");
+        for d in days {
+            println!("{d}");
+            if days[i] == d {
+                break
+            }
+        }
+        println!();
+    }
+}
 
 fn main() {
-    test_convert_to_celsius();
+    // test_convert_to_celsius();
+    // test_fibonacci();
+    test_twelve_days_of_christmas();
 }
