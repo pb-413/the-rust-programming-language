@@ -49,8 +49,50 @@ fn makes_copy(some_integer: i32) { // some_integer comes into scope
 } // Here, some_integer goes out of scope. Nothing special happens.
 
 
+//Slices
+fn first_word(s: &String) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[..i];
+        }
+    }
+
+    &s[..]
+}
+fn second_word(s: &String) -> &str {
+    let bytes = s.as_bytes();
+    let mut n1 = 0;
+    let mut found_first_space = false;
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+           if !found_first_space{
+                n1 = i + 1; // +1 for length of ' '
+                found_first_space = true;
+           } else {
+                return &s[n1..i]
+           }
+        }
+    }
+
+    &s[n1..]
+}
+fn other_slices() {
+    let a = [1, 2, 3, 4, 5];
+    let slice = &a[1..3];
+    assert_eq!(slice, &[2, 3])
+}
+
 fn main() {
     size_scope_and_assignment();
     println!();
     ownership_and_functions();
+    println!();
+    let s = String::from("Hello user; welcome!");
+    let first = first_word(&s);
+    println!("First of '{s}' is '{first}'");
+    let second = second_word(&s);
+    println!("Second of '{s}' is '{second}'");
+    other_slices();
 }
