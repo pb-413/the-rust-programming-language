@@ -15,9 +15,7 @@ fn build_user(email: String, username: String) -> User {
     }
 }
 
-
-
-fn main() {
+fn use_user() {
     let mut user1 = User {
         active: true,
         username: String::from("someusername123"),
@@ -35,5 +33,37 @@ fn main() {
     let user3 = User{
         email: String::from("anotherone@rust.com"),
         ..user2
+    };
+
+}
+
+
+fn rect_struct_and_area_func() {
+    #[derive(Debug)]
+    struct Rectangle {
+        width: u32,
+        height: u32,
     }
+
+    fn area(rectangle: &Rectangle) -> u32 {
+        rectangle.width * rectangle.height
+    }
+
+    let scale = 2;
+    let rect1 = Rectangle {
+        width: dbg!(30 * scale),
+        height: 50,
+    };
+
+    println!(
+        "The area of the rectangle is {} square pixels.",
+        area(&rect1)
+    );
+
+    dbg!(&rect1);
+
+}
+
+fn main() {
+    rect_struct_and_area_func();
 }
