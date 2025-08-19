@@ -1,6 +1,5 @@
-use std::io;
+use std::{cmp::Ordering, io};  // 7.4 - Nested Paths - Consolidating long use lists
 use rand::Rng;
-use std::cmp::Ordering;
 
 fn main() {
     println!("Guess the number!");

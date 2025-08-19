@@ -29,6 +29,10 @@ pub fn eat_at_restaurant() {
 
     // Relative path
     front_of_house::hosting::add_to_waitlist();
+
+    // 7.4 Using use keyword
+    use crate::front_of_house::hosting;
+    hosting::add_to_waitlist();
 }
 
 
@@ -89,3 +93,19 @@ pub fn eat_at_restaurant_enum() {
     let order1 = back_of_house_enum::Appetizer::Soup;
     let order2 = back_of_house_enum::Appetizer::Salad;
 }
+
+
+// 7.4 Bringing Paths Into Scope with the use Keyword
+
+mod customer {
+    use crate::front_of_house::hosting;
+
+    pub fn eat_at_restaurant() {
+        hosting::add_to_waitlist();
+    }
+}
+
+// Idiomatic:
+// - parent module of a function (so we know where it is from i.e. not here)
+// - full path to structs, enums, etc. (exception: things with the same name)
+//  - as keyword exists if you'd rather rename one of the clashers
