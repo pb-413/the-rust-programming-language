@@ -1,21 +1,6 @@
 // 7.2 Grouping Related Code in Modules
 
-mod front_of_house {
-    pub mod hosting {                // 7.3 made public
-        pub fn add_to_waitlist() {}  // 7.3 made public
-
-        fn seat_at_table() {}
-    }
-
-    mod serving {
-        fn take_order() {}
-
-        fn serve_order() {}
-
-        fn take_payment() {}
-    }
-}
-
+mod front_of_house;
 
 // 7.3 Exposing Paths with the pub Keyword
 
@@ -35,7 +20,6 @@ pub fn eat_at_restaurant() {
     hosting::add_to_waitlist();
 }
 
-
 // 7.3 Starting Relative Paths with super
 
 fn deliver_order() {}
@@ -50,7 +34,6 @@ mod back_of_house {
 
     fn cook_order() {}
 }
-
 
 // 7.3 Making Structs and Enums Public
 
@@ -93,7 +76,6 @@ pub fn eat_at_restaurant_enum() {
     let order1 = back_of_house_enum::Appetizer::Soup;
     let order2 = back_of_house_enum::Appetizer::Salad;
 }
-
 
 // 7.4 Bringing Paths Into Scope with the use Keyword
 
